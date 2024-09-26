@@ -3,12 +3,17 @@
 #Your madlib needs to use 2 of the user inputs twice (for you have a variable called place that you use in 2 different spots in the madlib)
 
 name = input("what is your name? ")
-familyMember = input("Who is your favorite family member?")
-store = input("You feel hungry, where do you go?(a gas station like 7'11) ")
-food = input("What food do you buy? ")
-place = input("Where do you go to eat? ")
+planet = input("what is your favorite planet?(anything but neptune and earth) ")
+gem = input("What is your favorite gem? ")
+button = input("Hey! which color button do you like? red or blue? ")
+favoriteFriend = input("Who is your favorite friend? ")
+favoriteFood = input("What is your favorite food? ")
 
-print(name, "is done with work for today, and decides to go to his favorite place to eat in the world!", store, "! they go to", place, 
-      "to eat their definitely nutricious", food, "and regain their energy to work another 10 hours straight!" " but whats this?? your", familyMember, "demands money and your lunch to provide for their own family that you have never even met!"
-      "Luckily, they don't seem to realize who they are talking to, so you obliterate them with an earth shattering hook and smash their skull and flee the scene!"
-      "the end :)")
+print( name, "has been tasked to travel to the far away planet of", planet, ", during your time there, you encounter an abundance of", gem, 
+      "! As you try to head back home, the last thing you have to do to get this information back to base, is press the", button, "colored button." 
+      "unfortunatley, you are color blind, and definitely accidentally press the button that launches a" ,planet, "sized nuke towards earth and blow it up."
+      "Due to your oopsie, you try to find another planet to live on and remember how cool people talk about Neptune and decide to go there."
+      "As you land on planet neptune, it seems your best friend", favoriteFriend, "is also here somehow, but your happy!"
+      "As you go over to hug them. it seems they are just a mirage."
+      "You are alone, and it's your fault. As you slowly freeze due to the temperature of neptune(when people said cool, they meant temperature), you remember you still have a bunch of", gem,
+      "and a lot of prepacked", favoriteFood,"('s)!")
