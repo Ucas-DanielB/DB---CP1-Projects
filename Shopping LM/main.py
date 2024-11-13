@@ -2,40 +2,40 @@
 
 #Since you don't know loops and conditionals yet use the code below to have your code run more than once. 
 
+
+food = []
+def add():
+    object = input("What do you want to add? ")
+    food.append(object)
+    print(food)
+    
+def remove():
+    object = input("What do you want to remove? ")
+    food.remove(object)
+    print(food)
+
 while True:
 
     action = input("""What would you like to do?
 
                                   Enter 1 to add item
 
-    
-    
                                   Enter 2 to remove item
 
                                   Enter 3 to leave the list:\n""")
-
     
-    
-    
-    
-    def food_list(groceries):
-        print("milk and eggs W")
-        print()
 
     if action =="1":
 
-        add:(food_list)
-        print()
+        add()
 
     elif action =="2":
 
-        remove:(food_list)
-        print()
+        remove()
 
     else:
 
-        print("Have a nice day!")
-        print()
+        print("Have a nice day! here is your list! ", food)
+
 
         break
-
