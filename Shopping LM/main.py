@@ -2,13 +2,14 @@
 
 #Since you don't know loops and conditionals yet use the code below to have your code run more than once. 
 
-
+#This little piece of code creates an empty list to use called food, makes a function to store the variables that also add. They ask the question and the answer of the question is added to the end of the list by using append, and print result.
 food = []
 def add():
     object = input("What do you want to add? ")
     food.append(object)
     print(food)
     
+#It does the same above, creates a function to store variables to remove, asks the question, and then removes the "food" that was said in the terminal from the list, and prints the result.
 def remove():
     object = input("What do you want to remove? ")
     food.remove(object)
