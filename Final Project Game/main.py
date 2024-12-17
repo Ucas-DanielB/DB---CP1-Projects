@@ -31,7 +31,7 @@ monsters = {
     "The undead has come back! He seems to own the house and pay the mortage too!": {"health": 20, "damage": 5},
     "The Janitor Rebels!": {"health": 50, "damage": 10},
     "Rick The Door Technician": {"health": 50, "damage": 10},
-    "Field Guard": {"health": 75, "damage": 12},
+    "Field Guard": {"health": 75, "damage": 12}, 
     "A juggernaut!(not from marvel, trust)": {"health": 75, "damage": 12},
     "The Undead City Border Police": {"health": 100, "damage": 15},
     "Satan Himself!": {"health": 150, "damage": 20},
@@ -131,6 +131,22 @@ def unlock_locations():
         locations["Eastern School District"]["unlocked"] = True
         print("The school districts are now unlocked! Type west or east school to go there!")
 
+def unlock_locations():
+    if all(monster in player["defeated_monsters"] for monster in ["A beast lies here, but he seems to be invisible!", "A monster with blades for hands!", "The undead has come back! He seems to own the house and pay the mortage too!", "The Janitor Rebels!", "Rick The Door Technician"]):
+        locations["Western Military"]["unlocked"] = True
+        locations["Eastern Military"]["unlocked"] = True
+        print("The Militaries are now unlocked! Type west or east military to go there!")
+
+def unlock_locations():
+    if all(monster in player["defeated_monsters"] for monster in ["A beast lies here, but he seems to be invisible!", "A monster with blades for hands!", "The undead has come back! He seems to own the house and pay the mortage too!", "The Janitor Rebels!", "Rick The Door Technician", "Field Guard" "A juggernaut!(not from marvel, trust)"]):
+        locations["City Border"] = True
+        print("The City Border is now unlocked! Type city border to go there!")
+
+def unlock_locations():
+    if all(monster in player["defeated_monsters"] for monster in ["A beast lies here, but he seems to be invisible!", "A monster with blades for hands!", "The undead has come back! He seems to own the house and pay the mortage too!", "The Janitor Rebels!", "Rick The Door Technician", "Field Guard" "A juggernaut!(not from marvel, trust)", "The Undead City Border Police"]):
+        locations["State Line"] = True
+        print("The State Line is now unlocked! Type state line to go there!")
+
 # Item drop function
 def drop_item(location):
     if not locations[location]["item_obtained"]:
@@ -186,7 +202,21 @@ def play_game():
         elif command == "east school" and locations["Eastern School District"]["unlocked"]:
             current_location = "Eastern School District"
             combat("Rick The Door Technician")
+        elif command == "west military" and locations["Western School District"]["unlocked"]:
+            current_location = "Western Military"
+            combat("Field Guard")
+        elif command == "east military" and locations["Eastern School District"]["unlocked"]:
+            current_location = "Eastern Military"
+            combat("A juggernaut!(not from marvel, trust)")
+        elif command == "city border" and locations["Eastern School District"]["unlocked"]:
+            current_location = "City Border"
+            combat("The Undead City Border Police")
+        elif command == "state line" and locations["Eastern School District"]["unlocked"]:
+            current_location = "State Line"
+            combat("Satan Himself!")
         else:
             print("Invalid command.")
 
 play_game()
+
+#Fix the bugs
