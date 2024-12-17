@@ -45,12 +45,12 @@ items = {
     "Vaporub": {"type": "healing", "boost": {"health": 10}, "description": "Heals 10 health. One-time use."},
     "Weak Boots": {"type": "boots", "boost": {"dodge_chance": 0.1}, "description": "10% chance to avoid damage."},
     "Severed Hand": {"type": "special", "boost": {}, "description": "One-hit kill on any monster. One-time use."},
-    "Flip Flops": {"type": "boots", "boost": {"steal_health": 5}, "description": "Steals 5 health from a monster. One-time use."},
+    "Rotten Teeth": {"type": "boots", "boost": {"steal_health": 20}, "description": "Steals 20 health from a monster."},
     "Military Helmet": {"type": "head_gear", "boost": {"damage": 10}, "description": "Increases damage by 10."},
-    "Bulletproof Armor": {"type": "chest_armor", "boost": {"max_health": 20}, "description": "Increases health by 20."},
-    "Field Officer Sword": {"type": "weapon", "boost": {"damage": 15}, "description": "Increases damage by 15."},
-    "Blast Suit": {"type": "chest_armor", "boost": {"damage": 5, "max_health": 10}, "description": "Increases damage by 5 and max health by 10."},
-    "Hand Grenades": {"type": "weapon", "boost": {"damage": 30}, "description": "Increases damage by 30."},
+    "Bulletproof Armor": {"type": "chest_armor", "boost": {"max_health": 25}, "description": "Increases health by 25."},
+    "Field Officer Sword": {"type": "weapon", "boost": {"damage": 25}, "description": "Increases damage by 25."},
+    "Blast Suit": {"type": "chest_armor", "boost": {"damage": 5, "max_health": 75}, "description": "Increases damage by 5 and max health by 75."},
+    "Hand Grenades": {"type": "weapon", "boost": {"damage": 50}, "description": "Increases damage by 50."},
 }
 
 # Random Item Drop Function
@@ -129,7 +129,7 @@ def unlock_locations():
     if all(monster in player["defeated_monsters"] for monster in ["A beast lies here, but he seems to be invisible!", "A monster with blades for hands!", "The undead has come back! He seems to own the house and pay the mortage too!"]):
         locations["Western School District"]["unlocked"] = True
         locations["Eastern School District"]["unlocked"] = True
-        print("The school districts are now unlocked!")
+        print("The school districts are now unlocked! Type west or east school to go there!")
 
 # Item drop function
 def drop_item(location):
@@ -138,8 +138,8 @@ def drop_item(location):
             print("You found the Severed Hand!")
             player["inventory"].append("Severed Hand")
         elif location == "West House" and random.random() < 0.1:
-            print("You found Flip Flops!")
-            player["inventory"].append("Flip Flops")
+            print("You found Rotten Teeth!")
+            player["inventory"].append("Rotten Teeth")
         else:
             item = random.choice(list(items.keys()))
             print(f"You found a {item}!")
@@ -180,10 +180,10 @@ def play_game():
             current_location = "West House"
             combat("The undead has come back! He seems to own the house and pay the mortage too!")
             drop_item(current_location)
-        elif command == "west" and locations["Western School District"]["unlocked"]:
+        elif command == "west school" and locations["Western School District"]["unlocked"]:
             current_location = "Western School District"
             combat("The Janitor Rebels!")
-        elif command == "east" and locations["Eastern School District"]["unlocked"]:
+        elif command == "east school" and locations["Eastern School District"]["unlocked"]:
             current_location = "Eastern School District"
             combat("Rick The Door Technician")
         else:
